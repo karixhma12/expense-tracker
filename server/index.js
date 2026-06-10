@@ -2,6 +2,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const dotenv = require("dotenv");
 const router = require("./routes/authRoutes");
+const authMiddleware = require("./middlewares/authMiddleware");
 
 dotenv.config();
 
@@ -19,9 +20,6 @@ app.use(express.json());
 
 app.use("/api/auth",router);
 
-app.get("/",(req,res)=>{
-    res.send("you hit the server!");
-})
 
 
 app.listen(3000,()=>{
